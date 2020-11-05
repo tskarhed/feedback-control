@@ -1,12 +1,13 @@
 Model {
   Name			  "ch2ex5"
-  Version		  10.1
+  Version		  10.2
   SavedCharacterEncoding  "US-ASCII"
+  ModelUUID		  "c0ca5696-2923-4b3c-ae0e-1482510bcc97"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.7"
+    ComputedModelVersion    "2.0"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -31,6 +32,7 @@ Model {
   LogicAnalyzerPlugin	  "on"
   WebScopes_FoundationPlugin "on"
   SLCCPlugin		  "on"
+  slcheck_filter_plugin	  "on"
   AnimationPlugin	  "on"
   DiagnosticSuppressor	  "on"
   NotesPlugin		  "on"
@@ -81,24 +83,24 @@ Model {
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[858.0, 509.0]
-	ZoomFactor		[0.8]
-	Offset			[-78.346178928466657, -16.22702297702233]
-	SceneRectInView		[-78.346178928466657, -16.22702297702233, 1072.5, 636.25]
+	ZoomFactor		[1.0]
+	Offset			[-23.596178928466657, 9.52297702297767]
+	SceneRectInView		[-23.596178928466657, 9.52297702297767, 858.0, 509.0]
       }
       Array {
 	Type			"Simulink.DockComponentInfo"
 	Dimension		3
 	Object {
 	  $ObjectID		  6
-	  Type			  "Simulink:Editor:ReferencedFiles"
-	  ID			  "Referenced Files"
-	  Visible		  [0]
-	  CreateCallback	  ""
-	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
+	  Type			  "GLUE2:SpreadSheet"
+	  ID			  "ModelData"
+	  Visible		  [1]
+	  CreateCallback	  "DataView.createSpreadSheetComponent"
+	  UserData		  ""
 	  Floating		  [0]
-	  DockPosition		  "Left"
-	  Width			  [640]
-	  Height		  [480]
+	  DockPosition		  "Bottom"
+	  Width			  [892]
+	  Height		  [264]
 	  Minimized		  "Unset"
 	}
 	Object {
@@ -116,15 +118,15 @@ Model {
 	}
 	Object {
 	  $ObjectID		  8
-	  Type			  "GLUE2:SpreadSheet"
-	  ID			  "ModelData"
-	  Visible		  [1]
-	  CreateCallback	  "DataView.createSpreadSheetComponent"
-	  UserData		  ""
+	  Type			  "Simulink:Editor:ReferencedFiles"
+	  ID			  "Referenced Files"
+	  Visible		  [0]
+	  CreateCallback	  ""
+	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
 	  Floating		  [0]
-	  DockPosition		  "Bottom"
-	  Width			  [892]
-	  Height		  [264]
+	  DockPosition		  "Left"
+	  Width			  [640]
+	  Height		  [480]
 	  Minimized		  "Unset"
 	}
 	PropName		"DockComponentsInfo"
@@ -150,15 +152,17 @@ Model {
     BDUuid		    "231d99b7-78db-4ae7-9510-23c919f28f7c"
   }
   HideAutomaticNames	  on
+  SequenceViewerTimePrecision 3
+  SequenceViewerHistory	  1000
   Created		  "Tue Nov 03 19:10:00 2020"
   Creator		  "Tobias"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Tobias"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Nov 04 21:22:58 2020"
-  RTWModifiedTimeStamp	  526425777
-  ModelVersionFormat	  "1.%<AutoIncrement:0>"
+  LastModifiedDate	  "Thu Nov 05 12:31:30 2020"
+  RTWModifiedTimeStamp	  526480268
+  ModelVersionFormat	  "%<AutoIncrement:2.0>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -238,6 +242,7 @@ Model {
   ExtModeTrigMode	  "normal"
   ExtModeTrigPort	  "1"
   ExtModeTrigElement	  "any"
+  ExtModeTrigSignalOutputPortIndex 0
   ExtModeTrigDuration	  1000
   ExtModeTrigDurationFloating "auto"
   ExtModeTrigHoldOff	  0
@@ -253,6 +258,7 @@ Model {
   ExtModeSkipDownloadWhenConnect off
   ExtModeLogAll		  on
   ExtModeAutoUpdateStatusClock on
+  VariantFading		  on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
   OrderedModelArguments	  off
@@ -261,7 +267,7 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      10
-      Version		      "20.0.1"
+      Version		      "20.1.0"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -269,12 +275,12 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  11
-	  Version		  "20.0.1"
+	  Version		  "20.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
 	  StartTime		  "0.0"
-	  StopTime		  "100"
+	  StopTime		  "10"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  on
 	  FixedStep		  "auto"
@@ -308,11 +314,10 @@ Model {
 	  DecoupledContinuousIntegration off
 	  MinimalZcImpactIntegration off
 	  ODENIntegrationMethod	  "ode3"
-	  Solver		  ode15s
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  12
-	  Version		  "20.0.1"
+	  Version		  "20.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -354,7 +359,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  13
-	  Version		  "20.0.1"
+	  Version		  "20.1.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    9
@@ -428,7 +433,7 @@ Model {
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  14
-	  Version		  "20.0.1"
+	  Version		  "20.1.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -505,6 +510,7 @@ Model {
 	  ModelReferenceIOMismatchMessage "none"
 	  UnknownTsInhSupMsg	  "warning"
 	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceNoExplicitFinalValueMsg	"none"
 	  ModelReferenceSymbolNameMessage "warning"
 	  ModelReferenceExtraNoncontSigs "error"
 	  StateNameClashWarn	  "none"
@@ -546,10 +552,11 @@ Model {
 	  UnderSpecifiedDimensionMsg "none"
 	  DebugExecutionForFMUViaOutOfProcess off
 	  ArithmeticOperatorsInVariantConditions "error"
+	  VariantConditionMismatch "none"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  15
-	  Version		  "20.0.1"
+	  Version		  "20.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -599,7 +606,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  16
-	  Version		  "20.0.1"
+	  Version		  "20.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -619,7 +626,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  17
-	  Version		  "20.0.1"
+	  Version		  "20.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -649,11 +656,21 @@ Model {
 	  CustomCodeFunctionArrayLayout	[]
 	  DefaultCustomCodeFunctionArrayLayout "NotSpecified"
 	  CustomCodeUndefinedFunction "FilterOut"
+	  CustomCodeGlobalsAsFunctionIO	off
+	  SimTargetLang		  "C"
+	  GPUAcceleration	  off
+	  SimGPUMallocThreshold	  200
+	  SimGPUStackLimitPerThread 1024
+	  SimGPUErrorChecks	  off
+	  SimGPUCustomComputeCapability	""
+	  SimGPUCompilerFlags	  ""
+	  SimDLTargetLibrary	  "mkl-dnn"
+	  SimDLAutoTuning	  on
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  18
-	  Version		  "20.0.1"
+	  Version		  "20.1.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    16
@@ -722,6 +739,7 @@ Model {
 	  CodeProfilingInstrumentation "off"
 	  SILDebugging		  off
 	  TargetLang		  "C"
+	  GenerateGPUCode	  "None"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  GenerateTraceInfo	  off
 	  GenerateTraceReport	  off
@@ -737,12 +755,28 @@ Model {
 	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
 	  SharedConstantsCachingThreshold 1024
+	  GPUKernelNamePrefix	  ""
+	  GPUDeviceID		  -1
+	  GPUMallocMode		  "discrete"
+	  GPUMallocThreshold	  200
+	  GPUStackLimitPerThread  1024
+	  GPUcuBLAS		  on
+	  GPUcuSOLVER		  on
+	  GPUcuFFT		  on
+	  GPUErrorChecks	  off
+	  GPUComputeCapability	  "3.5"
+	  GPUCustomComputeCapability ""
+	  GPUCompilerFlags	  ""
+	  DLTargetLibrary	  "none"
+	  DLAutoTuning		  on
+	  DLArmComputeVersion	  "19.05"
+	  DLArmComputeArch	  "unspecified"
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      19
-	      Version		      "20.0.1"
+	      Version		      "20.1.0"
 	      Array {
 		Type			"Cell"
 		Dimension		28
@@ -832,7 +866,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      20
-	      Version		      "20.0.1"
+	      Version		      "20.1.0"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -936,7 +970,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  21
-	  Version		  "20.0.1"
+	  Version		  "20.1.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Components		  []
@@ -1149,7 +1183,8 @@ Model {
   System {
     Name		    "ch2ex5"
     Location		    [5, 2, 979, 1049]
-    Open		    off
+    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
+    Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1163,7 +1198,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "43"
     SimulinkSubDomain	    "Simulink"
@@ -1270,40 +1305,20 @@ Model {
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
       "ources','WiredSimulink',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('Mi"
-      "nYLimReal','-695193573852017894881532701142826284928865696072875913560595591568615603988678974476094736347165942"
-      "7404885491451964669182943164916811847662488157882353996602814305677470357970924915481670038476646834017541202120"
-      "32980361428206378089441351574056679811945724054593845820624494166080512422051840.00000','MaxYLimReal','772437304"
-      "2800196716209172692828439641341054472047756967279051294452057733438859191439332306453375498952638877232648940652"
-      "1998884681740746718266962290155903266572984304154575513147563788179918801527257591284709705833517569922215576788"
-      "094389815750463458137631979231326991476862072516266426368.00000','YLabelReal','','MinYLimMag','                 "
-      "                                                                                                                "
-      "                                                                                                                "
-      "                                                0.00000','MaxYLimMag','69519357385201789488153270114282628492886"
-      "5696072875913560595591568615603988678974476094736347165942740488549145196466918294316491681184766248815788235399"
-      "6602814305677470357970924915481670038476646834017541202120329803614282063780894413515740566798119457240545938458"
-      "20624494166080512422051840.00000','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesC"
-      "olor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.066666"
-      "6666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83137"
-      "2549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 "
-      "0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines'"
-      ",0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-695193"
-      "5738520178948815327011428262849288656960728759135605955915686156039886789744760947363471659427404885491451964669"
-      "1829431649168118476624881578823539966028143056774703579709249154816700384766468340175412021203298036142820637808"
-      "9441351574056679811945724054593845820624494166080512422051840.00000','MaxYLimReal','7724373042800196716209172692"
-      "8284396413410544720477569672790512944520577334388591914393323064533754989526388772326489406521998884681740746718"
-      "2669622901559032665729843041545755131475637881799188015272575912847097058335175699222155767880943898157504634581"
-      "37631979231326991476862072516266426368.00000','YLabelReal','','MinYLimMag','                                    "
-      "                                                                                                                "
-      "                                                                                                                "
-      "                             0.00000','MaxYLimMag','695193573852017894881532701142826284928865696072875913560595"
-      "5915686156039886789744760947363471659427404885491451964669182943164916811847662488157882353996602814305677470357"
-      "9709249154816700384766468340175412021203298036142820637808944135157405667981194572405459384582062449416608051242"
-      "2051840.00000','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'Axes"
-      "TickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.6235294117"
-      "64706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.3921"
-      "56862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])"
-      "),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',true,'Version"
-      "','2020b')),'Version','2020b','Position',[962 42 958 953],'VisibleAtModelOpen','on')"
+      "nYLimReal','-0.37447','MaxYLimReal','3.37023','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','3.37023','Leg"
+      "endVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627"
+      "4509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529"
+      "411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647"
+      "058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLa"
+      "bel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',2,'LineNames',{{'Integrator1','Integr"
+      "ator3'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-0.37447','MaxYLimRe"
+      "al','3.37023','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','3.37023','LegendVisibility','off','XGrid',tru"
+      "e,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6"
+      "86274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0."
+      "0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0."
+      "0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',tr"
+      "ue),extmgr.Configuration('Tools','Measurements',true,'Version','2020b')),'Version','2020b','Position',[962 42 95"
+      "8 953],'VisibleAtModelOpen','on')"
       NumInputPorts	      "2"
       Floating		      off
     }
@@ -1327,7 +1342,7 @@ Model {
       Ports		      [2, 1]
       Position		      [275, 110, 295, 130]
       ZOrder		      2
-      Inputs		      "|++"
+      Inputs		      "|--"
     }
     Block {
       BlockType		      Sum
