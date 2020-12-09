@@ -1,7 +1,9 @@
 T = 37;
 K1 = 7.48;
+%T=32.9
+%K1=6
 
-Kp1 = 11/7.48
+Kp1 = 11/K1
 Tprime = T/(K1*Kp1+1);
 Kprime = (Kp1*K1)/(Kp1*K1+1);
 
@@ -35,18 +37,43 @@ Ki2 = double(subs(solve(eqn, Ki2), [p1 p2 p3], poles ))
 
 s = tf('s');
 
-% Consider Ki2 here? What's up with that?
-Phat = 1/(s^3+pHatCalced(2)*s^2+pHatCalced(3)*s+pHatCalced(4));
-DCPhat = poles(1)*poles(2)*poles(3); %Same as dcgain
-subplot(2,1,1)
-step(Phat*DCPhat);
-title('Normalized $\frac{1}{\hat{P}}$ ($\hat{T}$) step response', 'Interpreter', 'latex');
-
-
 %DC gain normalization
-T1 = (Kp1Val*K1)/(T*s+1+Kp1Val*K1);
-subplot(2,1,2);
+T1 = (Kp1*K1)/(T*s+1+Kp1*K1);
+subplot(2,1,1);
 step(T1);
 title('Inner loop step response');
 
+% Consider Ki2 here? What's up with that?
+Phat = 1/(s^3+pHatCalced(2)*s^2+pHatCalced(3)*s+pHatCalced(4));
 
+
+DCPhat = poles(1)*poles(2)*poles(3); %Same as dcgain
+That= Phat*DCPhat;
+T= (Kd2*s^2+Kp2*s+Ki2)*Phat;
+
+
+subplot(2,1,2)
+step(That, T/dcgain(T));
+title('$\hat{T}$ vs T step response', 'Interpreter', 'latex');
+
+
+%%Pre-filter
+
+
+%Plot the entire transfer function of the system
+
+%Pre-filter
+F = 1/((Kd2/Ki2)*s^2+(Kp2/Ki2)*s+1);
+hold on
+FT = (T/dcgain(T))*(F/dcgain(F));
+step(FT);
+
+% Discretization of F
+samplingTime = 0.02;
+ alpha0=1+(Kp2/(Ki2*samplingTime))+Kd2/(Ki2*samplingTime^2)
+ alpha1=-(Kp2/(Ki2*samplingTime))-((2*Kd2)/(Ki2*samplingTime^2)) 
+ alpha2=Kd2/(Ki2*samplingTime^2)
+
+ 
+%step(T, T*F)
+%title('T and with and without prefilter');
