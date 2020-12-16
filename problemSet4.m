@@ -36,3 +36,21 @@ end
 plot(array)
 xlabel('Gain K');
 ylabel('Bandwidth (Hz)');
+
+%% Task 6
+s= tf('s');
+L = (s+0.6)/(s^2*(s^2+9*s+12));
+
+for K = 1:20
+   [Gm , Pm] = margin(K*L);
+   values(K) = Pm;
+end
+
+plot(1:20, values)
+
+closedLoop = (8*L)/(1+(8*L));
+% Reaches max value at K=8
+bw = bandwidth(closedLoop) %1.3149 rad/s
+bwHz = bw/(2*pi) %0.2093 Hz
+step(closedLoop);
+grid on
